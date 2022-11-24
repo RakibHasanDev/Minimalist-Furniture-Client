@@ -91,7 +91,7 @@ const Register = () => {
                                     <input type="text"
                                         {...register("photoUrl",
                                             { required: "name is required" })}
-                                        id="name" placeholder="your name" className="w-full px-4 py-2 shadow-xl rounded-md dark:border-gray-700 bg-white dark:text-gray-700 focus:outline-none " required />
+                                        id="name" placeholder="Photo Url" className="w-full px-4 py-2 shadow-xl rounded-md dark:border-gray-700 bg-white dark:text-gray-700 focus:outline-none " required />
                                     {errors.photoUrl && <p className='text-red-600'>{errors.photoUrl.message}</p>}
                                 </div>
                                 <div className="space-y-1 text-sm">
@@ -102,11 +102,11 @@ const Register = () => {
                                         })}
                                         className="w-full px-4 py-2 shadow-xl rounded-md dark:border-gray-700 bg-white dark:text-gray-700 focus:outline-none "
                                    required >
-                                        <option disabled hidden selected required>
+                                        <option value={''} disabled hidden selected required>
                                             Select One
                                         </option>
-                                        <option>Seller</option>
-                                        <option>Buyer</option>
+                                        <option value="Seller">Seller</option>
+                                        <option value="Buyer">Buyer</option>
                                     </select>
                                     {errors.select && (
                                         <p className="text-red-600" role="alert">
@@ -139,6 +139,8 @@ const Register = () => {
                                         {showPass ? <AiFillEyeInvisible className='h-6 w-6' /> : <AiFillEye className='h-6 w-6' />}
                                     </div>
                                 </div>
+
+                                {regError && <p className='text-red-600'>{ regError}</p>}
 
                                 <button
                                     // disabled={!accepted}
