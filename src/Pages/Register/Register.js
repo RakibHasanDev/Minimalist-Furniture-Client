@@ -83,7 +83,7 @@ const Register = () => {
                                     <input type="text"
                                         {...register("name",
                                             { required: "name is required" })}
-                                        id="name" placeholder="your name" className="w-full px-4 py-2 shadow-xl rounded-md dark:border-gray-700 bg-white dark:text-gray-700 focus:outline-none " required />
+                                        id="name" placeholder="your name" className="w-full px-4 py-2 shadow-xl rounded-md dark:border-gray-700 bg-white dark:text-gray-700 focus:outline-none" required />
                                     {errors.name && <p className='text-red-600'>{errors.name.message}</p>}
                                 </div>
                                 <div className="space-y-1 text-sm">
