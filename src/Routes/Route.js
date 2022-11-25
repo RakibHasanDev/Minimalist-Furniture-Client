@@ -5,6 +5,7 @@ import DashBoard from "../Pages/DashBoard/DashBoard";
 import MyOrders from "../Pages/DashBoard/MyOrders/MyOrders";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import Products from "../Pages/Products/Products";
 import Register from "../Pages/Register/Register";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element:<Blog></Blog>
+            },
+            {
+                path: '/products/:name',
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.name}`),
+                element:<Products></Products>
             }
         ]
         

@@ -4,8 +4,8 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const AddProducts = () => {
-  
     const { user } = useContext(AuthContext)
+    console.log(user)
     const { register, handleSubmit, formState: { errors }, } = useForm();  
     const imageHostKey = process.env.REACT_APP_imgbb_key;
     const date = Date.now();
@@ -28,16 +28,17 @@ const AddProducts = () => {
                     const product = {
                         image: imgData.data.url,
                         sellerImage: user?.photoURL,
-                        sellerName: data.sellerName,
-                        ProductName: data.name,
+                        sellerName: user?.displayName,
+                        sellerEmail: user?.email,
+                        productName: data.name,
                         originalPrice: data.originalPrice,
                         resalePrice: data.resale,
                         usingTime: data.usingTime,
                         shopLocation: data.location,
                         condition: data.select,
-                        PhoneNumber: data.number,
-                        CategoryName: data.category,
-                        Time: date,
+                        phoneNumber: data.number,
+                        categoryName: data.category,
+                        time: date,
                     };
                     fetch("http://localhost:5000/products", {
                         method: "POST",
@@ -66,34 +67,13 @@ const AddProducts = () => {
         
         <div className='mt-10'>
            
-            <section className="flex justify-center items-center py-5 rounded bg-slate-200 w-11/12  md:w-9/12 mx-auto">
+            <section className="flex justify-center items-center py-8 my-12 rounded bg-slate-200 w-11/12  md:w-9/12 mx-auto">
                 <div className="w-full">
                     <form
                         className="max-w-xl mx-auto"
                         onSubmit={handleSubmit(handelAddProduct)}
                     >
-                        <div className="space-y-1 text-sm">
-                            <label htmlFor="sellerName" className="block dark:text-gray-400">
-                                Seller Name
-                            </label>
-                            <input
-                                type="text"
-                                {...register("sellerName", {
-                                    required: "Name is required",
-                                })}
-                                name="sellerName"
-                                id="sellerName"
-                                defaultValue={user?.displayName}
-                               readOnly
-                                placeholder="Seller Name"
-                                className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
-                            />
-                            {errors.sellerName&& (
-                                <p className="text-red-600" role="alert">
-                                    {errors.sellerName?.message}
-                                </p>
-                            )}
-                        </div>
+                        
                         <div className="space-y-1 text-sm">
                             <label htmlFor="name" className="block dark:text-gray-400">
                                 Furniture Name
@@ -129,9 +109,9 @@ const AddProducts = () => {
                                 <option value={""} disabled hidden selected required>
                                     Please Select your Category
                                 </option>
-                                <option value="Bedroom">Bedroom </option>
-                                <option value="Drawing room">Drawing room </option>
-                                <option value="Kitchen">Kitchen </option>
+                                <option value="Bedroom Furniture">Bedroom Furniture </option>
+                                <option value="Drawing Room Furniture">Drawing Room Furniture</option>
+                                <option value="Kitchen Furniture">Kitchen Furniture</option>
                                 
                             </select>
                             {errors.category && (
