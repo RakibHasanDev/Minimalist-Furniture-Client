@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const AddProducts = () => {
@@ -7,11 +8,11 @@ const AddProducts = () => {
     const { user } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors }, } = useForm();  
     const imageHostKey = process.env.REACT_APP_imgbb_key;
+    const date = Date.now();
 
     const handelAddProduct = data => {
-        // console.log(data.image[0])
-       
-        console.log(data)
+        // console.log(data.image[0]  
+        // console.log(data)
         const image = data.url[0]
         const formData = new FormData();
         formData.append('image', image);
@@ -23,11 +24,37 @@ const AddProducts = () => {
             .then(res => res.json())
             .then(imgData => {
                 console.log(imgData.data.url)
-                const product = {
-                    name: data.name,
-                    email: data.email,
-                    specialty: data.specialty,
-                    image: imgData.data.url
+                if (imgData.success) {
+                    const product = {
+                        image: imgData.data.url,
+                        sellerImage: user?.photoURL,
+                        sellerName: data.sellerName,
+                        ProductName: data.name,
+                        originalPrice: data.originalPrice,
+                        resalePrice: data.resale,
+                        usingTime: data.usingTime,
+                        shopLocation: data.location,
+                        condition: data.select,
+                        PhoneNumber: data.number,
+                        CategoryName: data.category,
+                        Time: date,
+                    };
+                    fetch("http://localhost:5000/products", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify(product),
+                    })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            console.log(data);
+                            if (data.acknowledged) {
+                                toast.success("Your Product Added SuccessFully")
+                            }
+                        });
+
+                    console.log(product)
                 }
             
                 
@@ -39,7 +66,7 @@ const AddProducts = () => {
         
         <div className='mt-10'>
            
-            <section className="flex justify-center items-center py-5 rounded bg-slate-200  w-9/12 mx-auto">
+            <section className="flex justify-center items-center py-5 rounded bg-slate-200 w-11/12  md:w-9/12 mx-auto">
                 <div className="w-full">
                     <form
                         className="max-w-xl mx-auto"
@@ -103,8 +130,8 @@ const AddProducts = () => {
                                     Please Select your Category
                                 </option>
                                 <option value="Bedroom">Bedroom </option>
-                                <option value="Samsung">Drawing room </option>
-                                <option value="Nokia">Kitchen </option>
+                                <option value="Drawing room">Drawing room </option>
+                                <option value="Kitchen">Kitchen </option>
                                 
                             </select>
                             {errors.category && (
