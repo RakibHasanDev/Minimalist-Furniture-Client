@@ -17,21 +17,28 @@ const AllSellers = () => {
     })
 
     const handelDeleteSeller = seller => {
-        console.log(seller)
-        fetch(`http://localhost:5000/users/${seller._id}`, {
-            method: 'DELETE',
-
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount) {
-                    toast.success('Seller Delete SuccessFully')
-                    refetch();
-
-                }
-                console.log(data)
+       
+        const proceed = window.confirm(
+            "Are you sure, you want to delete this Seller"
+        );
+        if (proceed) {
+            fetch(`http://localhost:5000/users/${seller._id}`, {
+                method: 'DELETE',
 
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        toast.success('Seller Delete SuccessFully')
+                        refetch();
+
+                    }
+                    console.log(data)
+
+                })
+            
+        }
+        
         
     }
 
@@ -40,52 +47,52 @@ const AllSellers = () => {
     }
     // console.log(sellers)
     return (
-        <div >
-            <h3 className='text-3xl my-5 text-center text-primary'>Numbers Of sellers are {sellers.length}</h3>
+      <div >
+                <h3 className='text-3xl my-5 text-center text-primary'>Numbers Of sellers are {sellers.length}</h3>
 
-            <div className="overflow-x-auto">
-                <table className="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
 
-                    <thead>
-                        <tr>
-                            <th>Serial</th>
-                            <th>Seller Image</th>
-                            <th>Seller Name</th>
-                            <th>Seller Email</th>
-                            <th>Verify</th>
-                            <th>Delete</th>
+                        <thead>
+                            <tr>
+                                <th>Serial</th>
+                                <th>Seller Image</th>
+                                <th>Seller Name</th>
+                                <th>Seller Email</th>
+                                <th>Verify</th>
+                                <th>Delete</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        {
-                            sellers?.map((seller, index) => <tr className="hover"
-                                key={seller._id}>
-                                <th>{index + 1}</th>
-                                <td>
-                                    <div className="avatar">
-                                        <div className="avatar w-10 h-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                            <img src={seller?.photoUrl} alt='' />
+                            {
+                                sellers?.map((seller, index) => <tr className="hover"
+                                    key={seller._id}>
+                                    <th>{index + 1}</th>
+                                    <td>
+                                        <div className="avatar">
+                                            <div className="avatar w-10 h-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                                <img src={seller?.photoUrl} alt='' />
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>{seller?.name}</td>
-                                <td>{seller?.email}</td>
-                                <td>{seller?.verify}</td>
-                                <td><button onClick={() => handelDeleteSeller(seller)} className='btn btn-sm bg-red-500'>Delete</button></td>
+                                    </td>
+                                    <td>{seller?.name}</td>
+                                    <td>{seller?.email}</td>
+                                    <td>{seller?.verify}</td>
+                                    <td><button onClick={() => handelDeleteSeller(seller)} className='btn btn-sm bg-red-500'>Delete</button></td>
+                                    
+                                    
+                                     
 
 
 
-
-
-
-                            </tr>)
-                        }
-                    </tbody>
-                </table>
+                                </tr>)
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
     );
 };
 

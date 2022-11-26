@@ -17,21 +17,27 @@ const AllBuyers = () => {
     })
 
     const handelDeleteBuyer = buyer => {
-        console.log(buyer)
-        fetch(`http://localhost:5000/users/${buyer._id}`, {
-            method: 'DELETE',
-
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount) {
-                    toast.success('Seller Delete SuccessFully')
-                    refetch();
-
-                }
-                console.log(data)
+        const proceed = window.confirm(
+            "Are you sure, you want to delete this buyer"
+        );
+        if (proceed) {
+            fetch(`http://localhost:5000/users/${buyer._id}`, {
+                method: 'DELETE',
 
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        toast.success('Seller Delete SuccessFully')
+                        refetch();
+
+                    }
+                    console.log(data)
+
+                })
+            
+        }
+     
 
     }
 
