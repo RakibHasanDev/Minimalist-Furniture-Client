@@ -1,8 +1,4 @@
 import React from 'react';
-import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { AiOutlineHeart } from "react-icons/ai";
-
 
 const ProductCard = ({ product, productHandler }) => {
     console.log(product)
