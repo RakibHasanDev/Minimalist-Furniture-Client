@@ -35,6 +35,14 @@ const DashBoardLayout = () => {
                             </>
 
                         }
+                        {
+                            isAdmin && 
+                            <>
+                                <li className='text-blue-700'><Link to='/dashboard/allSellers'>Add Products </Link></li>
+                               
+                            </>
+
+                        }
                     </ul>
 
                 </div>
