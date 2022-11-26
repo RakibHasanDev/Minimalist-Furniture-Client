@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react'
 import reader from '../../../src/assets/106680-login-and-sign-up.json'
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
@@ -14,6 +14,7 @@ const Login = () => {
     const [showPass, setShowPass] = useState(false)
     const { signIn, providerLogin } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider();
+    const navigate = useNavigate();
 
     const handelLogin = data => {
         console.log(data)
@@ -25,6 +26,7 @@ const Login = () => {
                 console.log(user)
                 toast.success('User Login Successfully')
                 reset()
+                navigate('/') 
                 
                 
             })

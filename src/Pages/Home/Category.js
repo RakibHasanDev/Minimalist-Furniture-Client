@@ -1,12 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Loading from '../../Components/Loading';
 
-const Category = ({categories}) => {
+const Category = ({ categories, isLoading }) => {
     // console.log(categories)
 
     return (
+        
         <div className='my-10'>
             <h1 className='text-primary text-3xl text-center font-semibold'>Chose Your Category</h1>
+
+            {
+                isLoading && <Loading></Loading>
+            }
 
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10'>
                 {

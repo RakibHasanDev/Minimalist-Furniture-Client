@@ -12,21 +12,21 @@ const DashBoardLayout = () => {
             <NavBar></NavBar>
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content  ">
-                   <Outlet></Outlet>
+                <div className="drawer-content">
+                    <Outlet></Outlet>
 
 
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side  border-r-4 ">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 text-base-content">
-                       
+                        <li className='text-blue-700'><Link to='/dashboard'>My Orders</Link></li>
 
 
                         {
                             isSeller &&
                             <>
-                                <li><Link to='/dashBoard/addProducts'>Add Products </Link></li>
+                                <li className='text-blue-700'><Link to='/dashBoard/addProducts'>Add Products </Link></li>
                                
                             </>
 

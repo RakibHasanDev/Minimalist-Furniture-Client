@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react'
 import reader from '../../../src/assets/63787-secure-login.json'
 import { useForm } from 'react-hook-form';
@@ -9,10 +9,13 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 
 const Register = () => {
+
     const [regError, setRegError] = useState('')
     const [showPass, setShowPass] = useState(false)
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const { createUser, updateUser } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const handelSignUp = data => {
 
@@ -35,6 +38,7 @@ const Register = () => {
                         saveUser(data.name, data.email, data.select, data.photoUrl)
 
                         reset();
+                        navigate('/')
                     })
                     .catch(err => console.log(err));
 

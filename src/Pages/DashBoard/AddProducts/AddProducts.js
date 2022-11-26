@@ -74,7 +74,7 @@ const AddProducts = () => {
         
         <div className='mt-10'>
            
-            <section className="flex justify-center items-center py-8 my-12 rounded bg-slate-200 w-11/12  md:w-9/12 mx-auto">
+            <section className="flex justify-center items-center py-8 my-12 rounded bg-blue-100 w-11/12  md:w-9/12 mx-auto">
                 <div className="w-full">
                     <form
                         className="max-w-xl mx-auto"
