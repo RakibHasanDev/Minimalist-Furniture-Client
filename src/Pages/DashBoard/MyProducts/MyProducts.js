@@ -22,21 +22,26 @@ const MyProducts = () => {
     const handelDeleteProduct = product => {
         console.log(product)
         // console.log(doctor)
+        const proceed = window.confirm(
+            `Are you sure, you want to delete  ${product.productName} ?`
+        );
 
-        fetch(`http://localhost:5000/products/${product._id}`, {
-            method: 'DELETE',
-           
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount) {
-                    toast.success(`Product ${product.productName} delete successFully`)
-                    refetch();
-                    
-                }
-                console.log(data)
+        if (proceed) {
+            fetch(`http://localhost:5000/products/${product._id}`, {
+                method: 'DELETE',
 
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        toast.success(`Product ${product.productName} delete successFully`)
+                        refetch();
+
+                    }
+                    console.log(data)
+
+                })
+    }
     }
 
 
