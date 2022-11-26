@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 import Loading from '../../../Components/Loading';
 import { AuthContext } from '../../../Context/AuthProvider';
 
@@ -21,19 +22,20 @@ const MyOrders = () => {
     }
      console.log(myOrders)
     return (
-        <div>
-            <h3 className='text-3xl my-5 text-center text-primary  '>My Appointment</h3>
+        <div >
+            <h3 className='text-3xl my-5 text-center text-primary'>My Orders</h3>
 
             <div className="overflow-x-auto">
                 <table className="table w-full">
 
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Treatment</th>
-                            <th>Date</th>
-                            <th>Time</th>
+                            <th>Serial</th>
+                            <th>Product Name</th>
+                            <th>Product Price</th>
+                            <th>Customer Name</th>
+                            <th>Phone</th>
+                            <th>Meeting Location</th>
                             <th>Payment</th>
                         </tr>
                     </thead>
@@ -44,26 +46,27 @@ const MyOrders = () => {
                                 key={order._id}>
                                 <th>{index + 1}</th>
                                 <td>{order.ProductTitle ? order.ProductTitle : 'No Name'}</td>
-                                <td>{order.price}</td>
+                                <td>$ {order.price}</td>
                                 <td>{order.name}</td>
                                 <td>{order.phone}</td>
-                                {/* <td>
+                                <td>{order?.location ? order?.location : "No Location"}</td>
+                                <td>
                                         {
-                                            book?.price && !book?.paid && <Link
+                                            order?.price && !order?.paid && <Link
 
-                                                to={`/dashBoard/payment/${book._id}`}
+                                                to={`/dashBoard/payment/${order._id}`}
                                             >
-                                                <button className='btn btn-sm btn-primary'>Pay</button>
+                                                <button className='btn btn-sm btn-primary text-white'>Pay</button>
 
                                             </Link>
                                         }
 
                                         {
-                                            book?.price && book.paid && <span className='text-green-500'>Paid</span>
+                                            order?.price && order.paid && <span className='text-green-500'>Paid</span>
                                         }
 
 
-                                    </td> */}
+                                    </td> 
 
                             </tr>)
                         }

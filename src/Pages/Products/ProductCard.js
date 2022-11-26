@@ -15,9 +15,11 @@ const ProductCard = ({ product, productHandler }) => {
             <div>
                 <div className="lg:w-11/12  h-[36rem] mx-auto rounded-lg bg-gray-100 shadow-md border-gray-700 my-3 relative"  >
 
-                    <div className='p-4'>
+                    <div className='flex justify-center relative rounded-lg overflow-hidden'>
+                        <div className='p-4 transition-transform duration-500 transform ease-in-out hover:scale-110 w-full'>
 
-                        <img className=" rounded-lg h-56 w-full" src={image} alt="" />
+                            <img className=" rounded-lg h-56 w-full" src={image} alt="" />
+                        </div>
                     </div>
 
                     <div className="px-5">

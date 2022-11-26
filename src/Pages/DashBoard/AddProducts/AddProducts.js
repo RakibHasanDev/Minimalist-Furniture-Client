@@ -72,9 +72,10 @@ const AddProducts = () => {
 
     return (
         
-        <div className='mt-10'>
+        <div className='mt-5'>
+            <h1 className='text-3xl text-center text-sky-500'> Add A Product</h1>
            
-            <section className="flex justify-center items-center py-8 my-12 rounded bg-blue-100 w-11/12  md:w-9/12 mx-auto">
+            <section className="flex justify-center items-center py-8 mt-3 mb-12 rounded bg-blue-100 w-11/12  md:w-9/12 mx-auto">
                 <div className="w-full">
                     <form
                         className="max-w-xl mx-auto"
