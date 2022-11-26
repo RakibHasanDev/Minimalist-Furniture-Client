@@ -20,10 +20,11 @@ const MyProducts = () => {
     })
 
     const handelDeleteProduct = product => {
+        console.log(product)
         // console.log(doctor)
 
-        fetch(`http://localhost:5000/products?email=${user?.email}`, {
-            method: 'DELETE'
+        fetch(`http://localhost:5000/products/${product._id}`, {
+            method: 'DELETE',
            
         })
             .then(res => res.json())
@@ -52,6 +53,7 @@ const MyProducts = () => {
                     myProducts.map(product => <MyProductCard
                         key={product._id}
                         product={product}
+                        handelDeleteProduct={handelDeleteProduct}
                     ></MyProductCard>)
                 }
 

@@ -11,7 +11,7 @@ const Banner = () => {
                 <div className='md:w-1/2'>
                     <h1 className="text-4xl font-bold">Minimalist Furniture BD 2022.!</h1>
                     <p className="py-6">Search For Second Hand Furniture Near Me at Minimalist Furniture BD,, Find Second Hand Furniture Near Me. Now with us! Latest Today. Fast Response. More Relevant.</p>
-                    <Link to='/blog'><button className='btn btn-primary text-white'>See Our Blog</button></Link>
+                    <Link to='/blog'><button className='btn bg-gradient-to-r from-purple-400 to-sky-500 text-white'>See Our Blog</button></Link>
                 </div>
             </div>
         </div>

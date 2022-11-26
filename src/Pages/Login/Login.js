@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react'
 import reader from '../../../src/assets/106680-login-and-sign-up.json'
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
@@ -15,6 +15,9 @@ const Login = () => {
     const { signIn, providerLogin } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+   
 
     const handelLogin = data => {
         console.log(data)
@@ -26,7 +29,7 @@ const Login = () => {
                 console.log(user)
                 toast.success('User Login Successfully')
                 reset()
-                navigate('/') 
+                navigate(from, { replace: true });
                 
                 
             })
@@ -44,6 +47,7 @@ const Login = () => {
                 console.log(user)
                 // toast.success('User Login SuccessFully')
                 saveUser(user?.displayName, user?.email, user?.photoURL)
+                navigate(from, { replace: true });
 
             })
             .catch(error => {

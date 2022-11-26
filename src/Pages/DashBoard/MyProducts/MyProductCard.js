@@ -1,8 +1,12 @@
 import React from 'react';
 import { AiOutlineVideoCameraAdd } from "react-icons/ai";
 
-const MyProductCard = ({ product }) => {
-    const { categoryName, sellerName, shopLocation, condition, description, image, time, originalPrice, phoneNumber, productName, purchaseYear, resalePrice, sellerImage, usingTime } = product
+const MyProductCard = ({ product, handelDeleteProduct }) => {
+    const { image, time, originalPrice, productName, resalePrice } = product
+    
+
+    
+        
     return (
         <div className="lg:w-11/12  h-[25rem] mx-auto rounded-lg bg-gray-100 shadow-md border-gray-700 my-3 relative"  >
 
@@ -30,7 +34,7 @@ const MyProductCard = ({ product }) => {
 
                         <p className='flex gap-2 items-center text-blue-900 cursor-pointer'> Advertise: <AiOutlineVideoCameraAdd className='text-2xl' /></p>
 
-                        <button className='rounded-md py-2 px-4 bg-gradient-to-r from-purple-400 to-sky-500 text-sm text-white hover:bg-red-900 '> Delete </button>
+                        <button onClick={() => handelDeleteProduct(product)} className='rounded-md py-2 px-4 bg-gradient-to-r from-purple-400 to-sky-500 text-sm text-white hover:bg-red-900 '> Delete </button>
 
                       
                        

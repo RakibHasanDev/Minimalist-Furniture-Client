@@ -65,7 +65,7 @@ const BookingModal = ({ singleProduct, SetSingleProduct }) => {
                         <input name='email' defaultValue={user?.email} disabled type="email" placeholder="Email Address" className="input w-full  input-bordered" />
                         <input name='phone' type="text" placeholder="Phone Number" className="input w-full  input-bordered" required/> 
                         <input name='location' type="text" placeholder="Meeting Location" className="input w-full  input-bordered" required/> <br />
-                        <input disabled={user === null} type="submit" value="submit" className="input w-full  input-bordered btn bg-orange-400" />
+                        <input disabled={user === null} type="submit" value="submit" className="input w-full  input-bordered btn bg-gradient-to-r from-purple-400 to-sky-500 text-white" />
                     </form>
                 </div>
             </div>

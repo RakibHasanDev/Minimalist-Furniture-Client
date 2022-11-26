@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
+import useAdmin from '../Hooks/UseAdmin';
 import useSeller from '../Hooks/useSeller';
 import NavBar from '../Pages/Shared/NavBar/NavBar';
 
 const DashBoardLayout = () => {
     const { user } = useContext(AuthContext)
     const [isSeller] = useSeller(user?.email)
+    const [isAdmin] = useAdmin(user?.email)
     return (
         <div>
             <NavBar></NavBar>

@@ -9,7 +9,7 @@ const ProductCard = ({ product, productHandler }) => {
     return (
         <div>
             <div>
-                <div className="lg:w-11/12  h-[36rem] mx-auto rounded-lg bg-gray-100 shadow-md border-gray-700 my-3 relative"  >
+                <div className="lg:w-11/12  h-[36rem] mx-auto rounded-lg bg-gray-100 shadow-md  my-3 border-purple-500  border-t-2 relative "  >
 
                     <div className='flex justify-center relative rounded-lg overflow-hidden'>
                         <div className='p-4 transition-transform duration-500 transform ease-in-out hover:scale-110 w-full'>
@@ -73,7 +73,7 @@ const ProductCard = ({ product, productHandler }) => {
                         <label
                             onClick={() => productHandler(product)}
                             htmlFor="booking-modal"
-                            className='bg-orange-400 w-full text-white text-center absolute bottom-0 rounded-md py-2'> Book Now</label>
+                            className='bg-gradient-to-r from-purple-400 to-sky-500 w-full text-white text-center absolute bottom-0 rounded-md py-2'> Book Now</label>
                     </div>
                 </div>
             </div>
