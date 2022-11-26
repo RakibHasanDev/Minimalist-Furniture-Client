@@ -11,12 +11,13 @@ const AddProducts = () => {
     const date = Date.now();
 
     const handelAddProduct = data => {
-        // console.log(data.image[0]  
+      console.log(data)
         // console.log(data)
         const image = data.url[0]
         const formData = new FormData();
         formData.append('image', image);
         const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
+       
         fetch(url, {
             method: 'POST',
             body: formData
@@ -39,7 +40,10 @@ const AddProducts = () => {
                         phoneNumber: data.number,
                         categoryName: data.category,
                         time: date,
+                        description: data.description,
+                        purchaseYear: data.purchase
                     };
+                   
                     fetch("http://localhost:5000/products", {
                         method: "POST",
                         headers: {
@@ -56,11 +60,13 @@ const AddProducts = () => {
                             }
                         });
 
-                    console.log(product)
+                    
                 }
             
                 
             })
+
+            
         
     }
 
@@ -206,30 +212,26 @@ const AddProducts = () => {
                                 )}
                             </div>
                             <div className="space-y-1 text-sm">
-                                <label htmlFor="option" className="block dark:text-gray-400">
-                                    Select condition
+                                <label htmlFor="purchase" className="block dark:text-gray-400">
+                                    Year of Purchase
                                 </label>
-                                <select
-                                    {...register("select", {
-                                        required: "Please Select One",
+                                <input
+                                    type="month"
+                                    {...register("purchase", {
+                                        required: "Purchase year is required",
                                     })}
-                                    id="option"
+                                    name="purchase"
+                                    id="purchase"
+                                    placeholder="Year of Purchase"
                                     className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
-                                    required
-                                >
-                                    <option value={""} disabled hidden selected required>
-                                        Select One
-                                    </option>
-                                    <option value="excellent">excellent</option>
-                                    <option value="good">good</option>
-                                    <option value="fair">fair</option>
-                                </select>
-                                {errors.select && (
+                                />
+                                {errors.purchase && (
                                     <p className="text-red-600" role="alert">
-                                        {errors.select?.message}
+                                        {errors.purchase?.message}
                                     </p>
                                 )}
                             </div>
+                           
                             <div className="space-y-1 text-sm">
                                 <label htmlFor="number" className="block dark:text-gray-400">
                                     Phone Number
@@ -250,6 +252,31 @@ const AddProducts = () => {
                                     </p>
                                 )}
                             </div>
+                        </div>
+                        <div className="space-y-1 text-sm">
+                            <label htmlFor="option" className="block dark:text-gray-400">
+                                Select condition
+                            </label>
+                            <select
+                                {...register("select", {
+                                    required: "Please Select One",
+                                })}
+                                id="option"
+                                className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
+                                required
+                            >
+                                <option value={""} disabled hidden selected required>
+                                    Select One
+                                </option>
+                                <option value="excellent">excellent</option>
+                                <option value="good">good</option>
+                                <option value="fair">fair</option>
+                            </select>
+                            {errors.select && (
+                                <p className="text-red-600" role="alert">
+                                    {errors.select?.message}
+                                </p>
+                            )}
                         </div>
 
                         {/* Image File */}
@@ -272,7 +299,7 @@ const AddProducts = () => {
                                 />
                             </svg>
 
-                            <h2 className="mx-3 text-gray-400">Profile Photo</h2>
+                            <h2 className="mx-3 text-gray-400">Product Picture</h2>
 
                             <input
                                 {...register("url", {
@@ -283,6 +310,27 @@ const AddProducts = () => {
                                 className="hidden"
                             />
                         </label>
+                        <div className="space-y-1 text-sm  mt-5">
+                            <label htmlFor="description" className="block dark:text-gray-400">
+                                Description
+                            </label>
+                            <textarea
+                                type="tel"
+                                {...register("description", {
+                                    required: "Description is required",
+                                })}
+                                name="description"
+                                id="description"
+                                rows={5}
+                                placeholder="Description..."
+                                className="w-full px-4 py-3 border rounded-md dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400 "
+                            />
+                            {errors.description && (
+                                <p className="text-red-600" role="alert">
+                                    {errors.description?.message}
+                                </p>
+                            )}
+                        </div>
                         <button className="block w-full p-3 text-center rounded-sm  bg-sky-400 text-white mt-6">
                             Submit
                         </button>

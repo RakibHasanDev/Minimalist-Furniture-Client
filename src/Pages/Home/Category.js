@@ -26,7 +26,7 @@ const Category = ({categories}) => {
                             className=" bg-cover bg-center rounded-lg h-44 relative">
                             <div className='card-body h-full w-full bg-gradient-to-r from-black/60 to-transparent  border border-gray-100 rounded-md'>
                                   <h2 className=" text-white text-xl font-semibold ">{category.categoryName}</h2>
-                            {/* <p>If a dog chews shoes whose shoes does he choose?</p> */}
+                            
                             <div className="card-actions justify-end absolute bottom-4 right-5">
                                 <Link to={`/products/${category.categoryName}`}>
                                         <button className="bg-gradient-to-r from-purple-400 to-sky-500 px-4 py-2.5 rounded-md text-white">Sell All</button>
