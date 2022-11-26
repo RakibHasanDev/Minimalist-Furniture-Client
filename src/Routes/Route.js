@@ -1,6 +1,7 @@
 import DashBoardLayout from "../Layout/DashBoardLayout";
 import Blog from "../Pages/Blog/Blog";
 import AddProducts from "../Pages/DashBoard/AddProducts/AddProducts";
+import AllBuyers from "../Pages/DashBoard/AllBuyers/AllBuyers";
 import AllSellers from "../Pages/DashBoard/AllSellers/AllSellers";
 import DashBoard from "../Pages/DashBoard/DashBoard";
 import MyOrders from "../Pages/DashBoard/MyOrders/MyOrders";
@@ -70,6 +71,12 @@ const router = createBrowserRouter([
                 path: '/dashboard/allSellers',
                 element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
             }, 
+            {
+                path: '/dashboard/allBuyers',
+                element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
+            }, 
+
+           
             
         ]
     }
