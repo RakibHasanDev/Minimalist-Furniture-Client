@@ -8,7 +8,7 @@ const Category = ({ categories, isLoading }) => {
     return (
         
         <div className='my-10'>
-            <h1 className='text-primary text-3xl text-center font-semibold'>Chose Your Category</h1>
+            <h1 className=' text-3xl text-center font-semibold'>Chose Your Category</h1>
 
             {
                 isLoading && <Loading></Loading>

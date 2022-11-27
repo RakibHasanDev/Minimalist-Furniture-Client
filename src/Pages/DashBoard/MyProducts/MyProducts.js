@@ -21,7 +21,7 @@ const MyProducts = () => {
 
     const handelDeleteProduct = product => {
         console.log(product)
-        // console.log(doctor)
+        // console.log(product)
         const proceed = window.confirm(
             `Are you sure, you want to delete  ${product.productName} ?`
         );
