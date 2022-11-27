@@ -37,9 +37,22 @@ const AllSellers = () => {
 
                 })
             
-        }
+        }     
         
-        
+    }
+    const handelVerify = id => {
+        fetch(`https://new-doctor-portal-server.vercel.app/users/admin/${id}`, {
+            method: 'PUT',
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if (data.modifiedCount > 0) {
+                    toast.success('Make Admin Successfully')
+                    refetch();
+                }
+            })
     }
 
     if (isLoading) {

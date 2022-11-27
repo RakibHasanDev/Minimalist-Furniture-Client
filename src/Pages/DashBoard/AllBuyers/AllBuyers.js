@@ -40,6 +40,24 @@ const AllBuyers = () => {
      
 
     }
+    const handelVerify = id => {
+        console.log(id)
+        
+     
+        fetch(`http://localhost:5000/users/verify/${id}`, {
+            method: 'PUT',
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if (data.modifiedCount > 0) {
+                    toast.success('verify Successfully')
+                    refetch();
+                }
+            })
+            
+    }
 
     if (isLoading) {
         return <Loading></Loading>
@@ -77,8 +95,16 @@ const AllBuyers = () => {
                                 </td>
                                 <td>{buyer?.name}</td>
                                 <td>{buyer?.email}</td>
-                                <td>{buyer?.verify}</td>
-                                <td><button onClick={() => handelDeleteBuyer(buyer)} className='btn btn-sm bg-red-500'>Delete</button></td>
+                                <td>
+                                    {buyer?.verify === "true" ?
+                                        <p className='text-primary'>Verified</p>
+                                        :
+                                        <button onClick={() => handelVerify(buyer._id)} className='btn btn-sm btn-primary text-white'>Verify</button>
+                                    }
+                                
+                                
+                                </td>
+                                <td><button onClick={() => handelDeleteBuyer(buyer)} className='btn btn-sm bg-red-400 text-white'>Delete</button></td>
 
 
 
