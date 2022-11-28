@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const CheckOutForm = ({ orders }) => {
     const [cardError, setCardError] = useState("");
@@ -12,7 +13,7 @@ const CheckOutForm = ({ orders }) => {
 
 
     const {
-        price, email, name, _id
+        price, email, name, _id, productId
     
     } = orders;
 
@@ -101,6 +102,19 @@ const CheckOutForm = ({ orders }) => {
         console.log(paymentIntent);
     };
 
+    const handleSold = (id) => {
+        fetch(`http://localhost:5000/products/sold/${id}`, {
+            method: "PUT",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.modifiedCount > 0) {
+                    toast.success("paid successful.");
+
+                }
+            });
+    };
+
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -122,6 +136,8 @@ const CheckOutForm = ({ orders }) => {
                 />
 
                 <button
+                    
+                    onClick={() => handleSold(productId)}
                     className="btn btn-sm mt-8 btn-primary text-white "
                     type="submit"
 

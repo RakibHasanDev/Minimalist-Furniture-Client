@@ -19,6 +19,8 @@ const MyProducts = () => {
 
     })
 
+    // console.log(myProducts)
+
     const handelDeleteProduct = product => {
         console.log(product)
         // console.log(product)

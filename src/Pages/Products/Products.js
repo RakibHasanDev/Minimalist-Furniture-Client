@@ -7,6 +7,8 @@ import ReportModal from './ReportModal';
 
 const Products = () => {
     const products = useLoaderData()
+
+    console.log(products)
     const [singleProduct, SetSingleProduct] = useState(null)
   
 

@@ -3,14 +3,16 @@ import { AiFillWarning, AiFillCheckCircle } from "react-icons/ai";
 
 const ProductCard = ({ product, productHandler}) => {
     console.log(product)
-    const { categoryName, sellerName, shopLocation, condition, description, image, time, originalPrice, phoneNumber, productName, purchaseYear, resalePrice, sellerImage, usingTime, verify } = product
+    const { categoryName, sellerName, shopLocation, condition, description, image, time, originalPrice, phoneNumber, productName, purchaseYear, resalePrice, sellerImage, usingTime, verify, sold } = product
 
-    // {  }
+   
 
     return (
         <div>
             <div>
-                <div className="lg:w-11/12  h-[39rem] mx-auto rounded-lg bg-gray-100 shadow-md  my-3 border-purple-500  border-t-2 relative "  >
+                 
+             
+                <div className="lg:w-11/12  h-[40rem] mx-auto rounded-lg bg-gray-100 shadow-md  my-3 border-purple-500  border-t-2 relative "  >
 
                     <div className='flex justify-center relative rounded-lg overflow-hidden'>
                         <div className='p-4 transition-transform duration-500 transform ease-in-out hover:scale-110 w-full'>
@@ -86,10 +88,25 @@ const ProductCard = ({ product, productHandler}) => {
                     </div>
                    
                     <div className='mt-2'>
-                        <label
-                            onClick={() => productHandler(product)}
-                            htmlFor="booking-modal"
-                            className='bg-gradient-to-r from-purple-400 to-sky-500 w-full text-white text-center absolute bottom-0 rounded-md py-2 cursor-pointer'> Book Now</label>
+                        
+                            
+                        {
+                            sold === true ?
+                                
+                                <label className='bg-gray-300 w-full text-white text-center absolute bottom-0 rounded-md py-2 cursor-pointer'>Sold</label>
+                                : 
+                                <label
+
+                                    onClick={() => productHandler(product)}
+                                    htmlFor="booking-modal"
+                                    className='bg-gradient-to-r from-purple-400 to-sky-500 w-full text-white text-center absolute bottom-0 rounded-md py-2 cursor-pointer'> Book Now</label>
+                        }
+                            
+
+                       
+
+
+                       
                     </div>
                 </div>
             </div>
