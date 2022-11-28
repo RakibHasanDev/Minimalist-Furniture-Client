@@ -19,7 +19,7 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
-                'http://localhost:5000/advertise',
+                'http://localhost:5000/advertise/true',
             );
             setData(result.data);
             setLoading(false)

@@ -1,14 +1,15 @@
 import React from 'react';
 import { AiOutlineVideoCameraAdd } from "react-icons/ai";
+import {  AiFillCheckCircle } from "react-icons/ai";
 
 const MyProductCard = ({ product, handelDeleteProduct, handelAdvertise }) => {
-    const { image, time, originalPrice, productName, resalePrice } = product
+    const { image, time, originalPrice, productName, resalePrice, advertise } = product
     
 
     
         
     return (
-        <div className="lg:w-11/12  h-[25rem] mx-auto rounded-lg bg-gray-100 shadow-md border-gray-700 my-3 relative"  >
+        <div className="lg:w-11/12  h-[28rem] mx-auto rounded-lg bg-gray-100 shadow-md border-gray-700 my-3 relative"  >
 
             <div className='flex justify-center  rounded-lg overflow-hidden'>
                 <div className='p-2 transition-transform duration-500 transform ease-in-out hover:scale-110 w-full'>
@@ -18,17 +19,30 @@ const MyProductCard = ({ product, handelDeleteProduct, handelAdvertise }) => {
             </div>
 
             <div className="px-5">
-                {/* <div className='mt-2 flex justify-between items-center'>
-                            <img src={sellerImage} className="w-8 h-8 rounded-full" alt="" />
-
-                            <AiOutlineHeart className='text-red-600'></AiOutlineHeart>
-                        </div> */}
+               
                 <div className='text-blue-700 space-y-1 '>
+                    {
+                        advertise === 'true' &&
+                        <marquee className='text-blue-600 text-sm mt-2'><i>Currently Advertising</i> </marquee>
+                 }
                     <h3 className='text-md'> <b>{productName}</b> </h3>
                     <h3 className='text-md'>Original Price: <b>${originalPrice}</b> </h3>
                     <h3 className='text-md'>Selling Price: <b>${resalePrice}</b> </h3>
                     <p >Post On: <b className='text-xs'>{new Date(time).toLocaleString()}</b> </p>
                     <p>Sold Status: <strong>Unsold</strong> </p>
+{/* 
+                    <div className='text-sm  flex justify-between'>
+
+                        
+                        <p> advertise st: </p>
+                        <p className='flex gap-1 mt-1'>Verified:
+                            {
+                                verify === "true" ? <AiFillCheckCircle className='text-blue-800 text-xl' /> :
+                                    <AiFillCheckCircle className='text-red-500 text-xl' />
+                            }
+                        </p>
+
+                    </div> */}
                     
                     <div className=' flex justify-between pt-4'>
 

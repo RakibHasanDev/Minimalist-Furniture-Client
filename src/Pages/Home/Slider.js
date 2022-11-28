@@ -41,9 +41,9 @@ export default function Slider() {
 
                                     we are offering furniture like new in your budget, Don't be late to get your one,, hurry up...!.
                                 </p>
-                                <Link to='/services'>
+                                <Link to='/blog'>
                                     <button className="bg-gradient-to-r from-purple-400 to-sky-500 px-3 py-2 md:px-4 md:py-3 rounded-md">
-                                        Buy Now
+                                        Special Blog
                                     </button>
                                 </Link>
                             </div>
@@ -67,9 +67,9 @@ export default function Slider() {
 
                                     we are offering furniture like new in your budget, Don't be late to get your one,, hurry up...!.
                                 </p>
-                                <Link to='/services'>
+                                <Link to='/blog'>
                                     <button className="bg-gradient-to-r from-purple-400 to-sky-500 px-3 py-2 md:px-4 md:py-3 rounded-md">
-                                        Buy Now
+                                        Special Blog
                                     </button>
                                 </Link>
                             </div>
@@ -94,9 +94,9 @@ export default function Slider() {
 
                                     we are offering furniture like new in your budget, Don't be late to get your one,, hurry up...!.
                                 </p>
-                                <Link to='/services'>
+                                <Link to='/blog'>
                                     <button className="bg-gradient-to-r from-purple-400 to-sky-500 px-3 py-2 md:px-4 md:py-3 rounded-md">
-                                        Buy Now
+                                        Special Blog
                                     </button>
                                 </Link>
                             </div>
@@ -120,9 +120,9 @@ export default function Slider() {
 
                                     we are offering furniture like new in your budget, Don't be late to get your one,, hurry up...!.
                                 </p>
-                                <Link to='/services'>
+                                <Link to='/blog'>
                                     <button className="bg-gradient-to-r from-purple-400 to-sky-500 px-3 py-2 md:px-4 md:py-3 rounded-md">
-                                        Buy Now
+                                      Special Blog
                                     </button>
                                 </Link>
                             </div>

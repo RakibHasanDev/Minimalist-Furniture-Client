@@ -20,7 +20,7 @@ const MyOrders = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-     console.log(myOrders)
+    //  console.log(myOrders)
     return (
         <div >
             <h3 className='text-3xl my-5 text-center text-primary'>My Orders</h3>

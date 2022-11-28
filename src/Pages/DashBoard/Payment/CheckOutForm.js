@@ -122,7 +122,7 @@ const CheckOutForm = ({ orders }) => {
                 />
 
                 <button
-                    className="btn btn-sm mt-4 btn-primary"
+                    className="btn btn-sm mt-8 btn-primary text-white "
                     type="submit"
 
                     // disabled={!stripe ||   processing}
@@ -133,13 +133,13 @@ const CheckOutForm = ({ orders }) => {
                     Pay
                 </button>
             </form>
-            <p className="text-red-500">{cardError}</p>
+            <p className="text-red-500 mt-3">{cardError}</p>
             {success && (
-                <div>
-                    <p className="text-green-500">{success}</p>
+                <div className="mt-5 text-center space-y-1">
+                    <p className="text-blue-700">{success}</p>
                     <p>
                         Your TransactionId:{" "}
-                        <span className="font-bold">{transactionId}</span>
+                        <span className="font-semibold">{transactionId}</span>
                     </p>
                 </div>
             )}

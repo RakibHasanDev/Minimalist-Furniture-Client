@@ -29,8 +29,8 @@ const Advertise = ({ advertises, loading }) => {
                             key={advertise._id}
                             className="card card-side  shadow-lg rounded bg-sky-100 relative">
                             <figure><img className='h-56 w-44' src={advertise?.image} alt="Movie" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">{advertise?.productName}</h2>
+                            <div className="card-body text-gray-500">
+                                <h2 className="text-md font-semibold">{advertise?.productName}</h2>
                                 <p >Real Price:<b> ${advertise?.originalPrice}</b> </p>
                                 <p>Price: <b>${advertise?.resalePrice}</b></p>
                                 <p>post on: <b className='text-xs'>{new Date(advertise.time).toLocaleString()}</b></p>

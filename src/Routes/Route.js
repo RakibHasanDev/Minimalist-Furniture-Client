@@ -4,7 +4,6 @@ import AddProducts from "../Pages/DashBoard/AddProducts/AddProducts";
 import AllBuyers from "../Pages/DashBoard/AllBuyers/AllBuyers";
 import AllReports from "../Pages/DashBoard/AllReports/AllReports";
 import AllSellers from "../Pages/DashBoard/AllSellers/AllSellers";
-import DashBoard from "../Pages/DashBoard/DashBoard";
 import MyOrders from "../Pages/DashBoard/MyOrders/MyOrders";
 import MyProducts from "../Pages/DashBoard/MyProducts/MyProducts";
 import Payment from "../Pages/DashBoard/Payment/Payment";
@@ -49,6 +48,7 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/products/${params.name}`),
                 element: <PrivateRoute><Products></Products></PrivateRoute>
             }
+            
         ]
         
     },

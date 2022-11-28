@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const BookingModal = ({ singleProduct, SetSingleProduct }) => {
-    const { productName, resalePrice } = singleProduct
+    const { productName, resalePrice, _id} = singleProduct
 
     const handelBooking = (event) => {
         event.preventDefault()
@@ -15,6 +15,7 @@ const BookingModal = ({ singleProduct, SetSingleProduct }) => {
         const location = form.location.value;
 
         const booking = {
+            productId: _id,
             ProductTitle: productName,
             price: resalePrice,
             name,

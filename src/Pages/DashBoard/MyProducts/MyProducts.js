@@ -46,34 +46,30 @@ const MyProducts = () => {
 
 
     const handelAdvertise = (product) => {
-        console.log(product)
+        // console.log(product)
 
-        const advertiseProduct = {
-            productName: product.productName,
-            sellerEmail: product.sellerEmail,
-            productId: product._id,
-            image: product.image,
-            condition: product.condition,
-            originalPrice: product.originalPrice,
-            resalePrice: product.resalePrice,
-            time: product.time
-        }
-        console.log(advertiseProduct)
-        fetch('http://localhost:5000/advertise', {
-            method: 'POST',
+        fetch(`http://localhost:5000/products/advertise/${product._id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(advertiseProduct)
+
         })
             .then(res => res.json())
             .then(data => {
-                // console.log('save-user', data)
-                toast.success('advertise added successfully')
+                // console.log(data)
+                if (data.modifiedCount > 0) {
+                    toast.success('Advertise SuccessFully')
+                    refetch();
+                }
 
-
+                else if (data.matchedCount > 0) {
+                    toast.error('Already Advertised')
+                    refetch();
+                }
             })
     }
+   
 
     if (isLoading) {
         return <Loading></Loading>
