@@ -23,7 +23,7 @@ const ReportModal = ({ singleProduct, SetSingleProduct } ) => {
             message
             
         }
-        fetch('http://localhost:5000/addReport', {
+        fetch('https://server-site-coral.vercel.app/addReport', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

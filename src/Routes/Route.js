@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/products/:name',
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.name}`),
+                loader: ({ params }) => fetch(`https://server-site-coral.vercel.app/products/${params.name}`),
                 element: <PrivateRoute><Products></Products></PrivateRoute>
             }
             
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`),
+                loader: ({ params }) => fetch(`https://server-site-coral.vercel.app/orders/${params.id}`),
                 
                 
             }, 

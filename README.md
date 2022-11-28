@@ -1,11 +1,21 @@
 # Assignment 12
 
-This Assignment is used by react and firebase and mongodb & database & toastify. i hope this Assignment is good. I have tried my best in this Assignment.
+This is a website based on  used Furniture Purchase . You can Easily Purchase the product and also can pay with stripe. I think It there will be a great user experience with this site. 
+
+## 🔗 Links
+- [live SIte](https://minimal-furniture-d40b5.web.app/)
+- [client-site](https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-RakibHasan03)
+- [Server-Site](https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-RakibHasan03)
+
+# Admin Info
+- email: admin@gmail.com
+-password: rakib01767
+
 ## Features
 
-- Details
+- Home Page WITH NAV
 - login/register system
-- Responsive
+- Responsive for all device
 - Log out system
 - database sort
 - dynamic route
@@ -14,6 +24,8 @@ This Assignment is used by react and firebase and mongodb & database & toastify.
 
 
 ## Installation
+
+- use axios in home page
 
 Install react with npx
 
@@ -42,7 +54,3 @@ Install Stripe with npm
 **Server:** Node, Express, MongoDB, dotenv,cors
 
 
-## 🔗 Links
-- [live SIte](https://classic-mobile.web.app/)
-- [client-site](https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-Razibul-Islam)
-- [Server-Site](https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-Razibul-Islam)

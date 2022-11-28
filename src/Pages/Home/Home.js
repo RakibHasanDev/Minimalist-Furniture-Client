@@ -19,7 +19,7 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
-                'http://localhost:5000/advertise/true',
+                'https://server-site-coral.vercel.app/advertise/true',
             );
             setData(result.data);
             setLoading(false)
@@ -31,7 +31,7 @@ const Home = () => {
     // console.log(data)
 
 
-    const url = 'http://localhost:5000/categories'
+    const url = 'https://server-site-coral.vercel.app/categories'
 
     const { data: categories = [], isLoading } = useQuery({
         queryKey: ['categories'],

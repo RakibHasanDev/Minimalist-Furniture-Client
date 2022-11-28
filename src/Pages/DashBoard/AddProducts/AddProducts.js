@@ -47,7 +47,7 @@ const AddProducts = () => {
                         purchaseYear: data.purchase
                     };
                    
-                    fetch("http://localhost:5000/products", {
+                    fetch("https://server-site-coral.vercel.app/products", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

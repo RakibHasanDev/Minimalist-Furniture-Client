@@ -56,7 +56,7 @@ const Login = () => {
     }
     const saveUser = (name, email, photoUrl, role = "Buyer", verify = "false") => {
         const user = { name, email, role, photoUrl, verify };
-        fetch('http://localhost:5000/users', {
+        fetch('https://server-site-coral.vercel.app/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

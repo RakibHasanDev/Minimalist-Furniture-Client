@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import Loading from '../../../Components/Loading';
 
 const AllBuyers = () => {
-    const url = 'http://localhost:5000/allUsers/Buyer'
+    const url = 'https://server-site-coral.vercel.app/allUsers/Buyer'
 
     const { data: buyers = [], isLoading, refetch } = useQuery({
         queryKey: ['Buyer',],
@@ -21,7 +21,7 @@ const AllBuyers = () => {
             "Are you sure, you want to delete this buyer"
         );
         if (proceed) {
-            fetch(`http://localhost:5000/users/${buyer._id}`, {
+            fetch(`https://server-site-coral.vercel.app/users/${buyer._id}`, {
                 method: 'DELETE',
 
             })
@@ -44,7 +44,7 @@ const AllBuyers = () => {
         console.log(id)
         
      
-        fetch(`http://localhost:5000/users/verify/${id}`, {
+        fetch(`https://server-site-coral.vercel.app/users/verify/${id}`, {
             method: 'PUT',
 
         })

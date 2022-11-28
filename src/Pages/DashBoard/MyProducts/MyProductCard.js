@@ -9,7 +9,7 @@ const MyProductCard = ({ product, handelDeleteProduct, handelAdvertise }) => {
     
         
     return (
-        <div className="lg:w-11/12  h-[28rem] mx-auto rounded-lg bg-gray-100 shadow-md border-gray-700 my-3 relative"  >
+        <div className="lg:w-11/12  h-[26rem] mx-auto rounded-lg bg-gray-100 shadow-md border-gray-700 my-3 relative"  >
 
             <div className='flex justify-center  rounded-lg overflow-hidden'>
                 <div className='p-2 transition-transform duration-500 transform ease-in-out hover:scale-110 w-full'>
@@ -33,8 +33,8 @@ const MyProductCard = ({ product, handelDeleteProduct, handelAdvertise }) => {
                     
                     <p className='flex gap-1 mt-1'>Status:
                         {
-                           sold === true ? <p className='flex gap-2'> Sold <AiFillCheckCircle className='text-blue-800 text-xl' /> </p> :
-                                <p className='flex gap-2'> unsold <AiFillCheckCircle className='text-red-500 text-xl' /></p>
+                           sold === true ? <p className='flex gap-2'> Sold <AiFillCheckCircle className='text-red-500 text-xl' /> </p> :
+                                <p className='flex gap-2'> unsold <AiFillCheckCircle className='text-blue-600 text-xl' /></p>
                         }
                     </p>
 
