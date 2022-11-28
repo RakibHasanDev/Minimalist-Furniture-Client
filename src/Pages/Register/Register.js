@@ -62,7 +62,7 @@ const Register = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('save-user', data)
+                // console.log('save-user', data)
               
 
             })

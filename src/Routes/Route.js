@@ -2,10 +2,12 @@ import DashBoardLayout from "../Layout/DashBoardLayout";
 import Blog from "../Pages/Blog/Blog";
 import AddProducts from "../Pages/DashBoard/AddProducts/AddProducts";
 import AllBuyers from "../Pages/DashBoard/AllBuyers/AllBuyers";
+import AllReports from "../Pages/DashBoard/AllReports/AllReports";
 import AllSellers from "../Pages/DashBoard/AllSellers/AllSellers";
 import DashBoard from "../Pages/DashBoard/DashBoard";
 import MyOrders from "../Pages/DashBoard/MyOrders/MyOrders";
 import MyProducts from "../Pages/DashBoard/MyProducts/MyProducts";
+import Payment from "../Pages/DashBoard/Payment/Payment";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Products from "../Pages/Products/Products";
@@ -74,6 +76,17 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/allBuyers',
                 element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
+            }, 
+            {
+                path: '/dashboard/allReports',
+                element: <AdminRoute><AllReports></AllReports></AdminRoute>
+            }, 
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`),
+                
+                
             }, 
 
            

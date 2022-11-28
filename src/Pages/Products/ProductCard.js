@@ -1,15 +1,16 @@
 import React from 'react';
+import { AiFillWarning, AiFillCheckCircle } from "react-icons/ai";
 
-const ProductCard = ({ product, productHandler }) => {
+const ProductCard = ({ product, productHandler}) => {
     console.log(product)
-    const { categoryName, sellerName, shopLocation, condition, description, image, time, originalPrice, phoneNumber, productName, purchaseYear, resalePrice,  sellerImage, usingTime } = product
+    const { categoryName, sellerName, shopLocation, condition, description, image, time, originalPrice, phoneNumber, productName, purchaseYear, resalePrice, sellerImage, usingTime, verify } = product
 
     // {  }
 
     return (
         <div>
             <div>
-                <div className="lg:w-11/12  h-[36rem] mx-auto rounded-lg bg-gray-100 shadow-md  my-3 border-purple-500  border-t-2 relative "  >
+                <div className="lg:w-11/12  h-[39rem] mx-auto rounded-lg bg-gray-100 shadow-md  my-3 border-purple-500  border-t-2 relative "  >
 
                     <div className='flex justify-center relative rounded-lg overflow-hidden'>
                         <div className='p-4 transition-transform duration-500 transform ease-in-out hover:scale-110 w-full'>
@@ -49,11 +50,24 @@ const ProductCard = ({ product, productHandler }) => {
                             </div>
                             <div className='text-sm  flex justify-between'>
                                 <p> Seller Name: <b>{sellerName}</b> </p>
-                                <p>Verified: <span className='bg-red-500 rounded-full text-white px-2 py-.5'>No</span></p>
+                                <p className='flex gap-1 mt-1'>Verified: 
+                                    {
+                                        verify === "true" ? <AiFillCheckCircle  className='text-blue-800 text-xl'/> :  
+                                            <AiFillCheckCircle className='text-red-500 text-xl' />
+                                    }
+                                    </p>
 
                             </div>
                         </div>
-                        <hr  className='border-gray-600 my-2'/>
+                        <hr className='border-gray-600 my-3' />
+                        <div className='flex justify-between'>
+                            <img src={sellerImage} className='w-9 h-9 rounded-full' alt="" />
+                            
+                            <label onClick={() => productHandler(product)} htmlFor="report-modal" className='block'>
+                                <p className='text-red-500 text-sm flex gap-1 cursor-pointer '>Report <span className='text-xl'><AiFillWarning /></span> </p>
+                            </label>
+                           
+                        </div>
                         <div className='text-sm space-y-1 text-blue-800 mt-1'>
                             <p className=''>
                                 Seller Number: <b>{phoneNumber}</b>
@@ -65,15 +79,17 @@ const ProductCard = ({ product, productHandler }) => {
                             <p>Post on: {new Date(time).toLocaleString()}</p>
                             <p><b>Description:</b>  {description?.length > 100 ? description?.slice(0, 60) + '...' : description} </p>
                         </div>
+                       
 
                         
                        
                     </div>
+                   
                     <div className='mt-2'>
                         <label
                             onClick={() => productHandler(product)}
                             htmlFor="booking-modal"
-                            className='bg-gradient-to-r from-purple-400 to-sky-500 w-full text-white text-center absolute bottom-0 rounded-md py-2'> Book Now</label>
+                            className='bg-gradient-to-r from-purple-400 to-sky-500 w-full text-white text-center absolute bottom-0 rounded-md py-2 cursor-pointer'> Book Now</label>
                     </div>
                 </div>
             </div>

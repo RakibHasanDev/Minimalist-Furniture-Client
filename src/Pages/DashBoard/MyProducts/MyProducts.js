@@ -45,6 +45,36 @@ const MyProducts = () => {
     }
 
 
+    const handelAdvertise = (product) => {
+        console.log(product)
+
+        const advertiseProduct = {
+            productName: product.productName,
+            sellerEmail: product.sellerEmail,
+            productId: product._id,
+            image: product.image,
+            condition: product.condition,
+            originalPrice: product.originalPrice,
+            resalePrice: product.resalePrice,
+            time: product.time
+        }
+        console.log(advertiseProduct)
+        fetch('http://localhost:5000/advertise', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(advertiseProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log('save-user', data)
+                toast.success('advertise added successfully')
+
+
+            })
+    }
+
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -59,6 +89,7 @@ const MyProducts = () => {
                         key={product._id}
                         product={product}
                         handelDeleteProduct={handelDeleteProduct}
+                        handelAdvertise={handelAdvertise}
                     ></MyProductCard>)
                 }
 

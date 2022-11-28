@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineVideoCameraAdd } from "react-icons/ai";
 
-const MyProductCard = ({ product, handelDeleteProduct }) => {
+const MyProductCard = ({ product, handelDeleteProduct, handelAdvertise }) => {
     const { image, time, originalPrice, productName, resalePrice } = product
     
 
@@ -32,7 +32,7 @@ const MyProductCard = ({ product, handelDeleteProduct }) => {
                     
                     <div className=' flex justify-between pt-4'>
 
-                        <p className='flex gap-2 items-center text-blue-900 cursor-pointer'> Advertise: <AiOutlineVideoCameraAdd className='text-2xl' /></p>
+                        <p onClick={() => handelAdvertise(product)} className='flex gap-2 items-center text-blue-900 cursor-pointer'> Advertise: <AiOutlineVideoCameraAdd className='text-2xl' /></p>
 
                         <button onClick={() => handelDeleteProduct(product)} className='rounded-md py-2 px-4 bg-gradient-to-r from-purple-400 to-sky-500 text-sm text-white hover:bg-red-900 '> Delete </button>
 

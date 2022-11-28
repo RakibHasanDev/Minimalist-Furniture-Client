@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 import BookingModal from './BookingModal';
 import ProductCard from './ProductCard';
+import ReportModal from './ReportModal';
 
 const Products = () => {
     const products = useLoaderData()
     const [singleProduct, SetSingleProduct] = useState(null)
+  
 
     const productHandler = product => {
         SetSingleProduct(product)
@@ -22,6 +25,7 @@ const Products = () => {
                         key={product._id}
                         product={product}
                         productHandler={productHandler}
+                        
 
                     >
                         
@@ -36,6 +40,17 @@ const Products = () => {
                             SetSingleProduct={SetSingleProduct}
                         ></BookingModal>
                 }
+
+                {
+                    singleProduct &&
+                    <ReportModal
+                            singleProduct={singleProduct}
+                            SetSingleProduct={SetSingleProduct}
+                    
+                        ></ReportModal>
+                    }
+                    
+             
 
             </div>
            

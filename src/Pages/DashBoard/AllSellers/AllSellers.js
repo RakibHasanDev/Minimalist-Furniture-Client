@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useQuery } from 'react-query';
 import Loading from '../../../Components/Loading';
 
 const AllSellers = () => {
+
+ 
+
     const url = 'http://localhost:5000/allUsers/Seller'
 
     const { data: sellers = [], isLoading ,refetch} = useQuery({
@@ -40,8 +43,9 @@ const AllSellers = () => {
         }     
         
     }
-    const handelVerify = id => {
-        fetch(`https://new-doctor-portal-server.vercel.app/users/admin/${id}`, {
+    const handelVerify = seller => {
+
+       fetch(`http://localhost:5000/users/verify/${seller._id}`, {
             method: 'PUT',
 
         })
@@ -49,11 +53,35 @@ const AllSellers = () => {
             .then(data => {
                 // console.log(data)
                 if (data.modifiedCount > 0) {
-                    toast.success('Make Admin Successfully')
-                    refetch();
+                        toast.success('Verify Successfully')
+                        refetch()
+
                 }
             })
+            
+
     }
+
+  /*  const verifyProduct = (name) => {
+
+        console.log(name)
+
+        fetch(`http://localhost:5000/products/verify/${email}`, {
+            method: 'PUT',
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if (data.modifiedCount > 0) { 
+                    SetSellerEmail("")
+                    refetch();
+                    toast.success('verify Successfully')
+                }
+            })
+        
+    }
+    */
 
     if (isLoading) {
         return<Loading></Loading>
@@ -92,7 +120,11 @@ const AllSellers = () => {
                                     </td>
                                     <td>{seller?.name}</td>
                                     <td>{seller?.email}</td>
-                                    <td>{seller?.verify}</td>
+                                    <td>  {seller?.verify === "true" ?
+                                        <p className='text-primary'>Verified</p>
+                                        :
+                                        <button onClick={() => handelVerify(seller)} className='btn btn-sm btn-primary text-white'>Verify</button>
+                                    }</td>
                                     <td><button onClick={() => handelDeleteSeller(seller)} className='btn btn-sm bg-red-500'>Delete</button></td>
                                     
                                     

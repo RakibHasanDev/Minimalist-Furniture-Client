@@ -40,6 +40,7 @@ const DashBoardLayout = () => {
                             <>
                                 <li className='text-blue-700'><Link to='/dashboard/allSellers'>All Sellers </Link></li>
                                 <li className='text-blue-700'><Link to='/dashboard/allBuyers'>All Buyers </Link></li>
+                                <li className='text-blue-700'><Link to='/dashboard/allReports'>All Reports</Link></li>
                                
                             </>
 

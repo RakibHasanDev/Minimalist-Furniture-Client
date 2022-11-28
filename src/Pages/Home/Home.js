@@ -4,16 +4,33 @@ import Loading from '../../Components/Loading';
 import Banner from './Banner';
 import Category from './Category';
 import Slider from './Slider';
+import axios from 'axios';
+import Advertise from './Advertise';
+
 
 const Home = () => {
-   /* const [categories, setCategories] = useState([])
+    const [loading, setLoading] = useState(true)
 
+    const [advertises, setData] = useState([])
+    
+
+// fetch by axios
+    
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
-            .then(res => res.json())
-        .then(data=>setCategories(data))
-    },[])
-*/
+        const fetchData = async () => {
+            const result = await axios(
+                'http://localhost:5000/advertise',
+            );
+            setData(result.data);
+            setLoading(false)
+        };
+        fetchData();
+        
+    }, []);
+
+    // console.log(data)
+
+
     const url = 'http://localhost:5000/categories'
 
     const { data: categories = [], isLoading } = useQuery({
@@ -25,11 +42,21 @@ const Home = () => {
         }
 
     })
+
+    
+
    
     return (
         <div>
             <Slider></Slider>
             <Category categories={categories} isLoading={isLoading}></Category>
+            {
+                advertises?.length >0 &&
+                <Advertise
+                        advertises={advertises}
+                        loading={loading}
+                    ></Advertise>
+            }
             <Banner></Banner>
         </div>
     );
