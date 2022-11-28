@@ -9,7 +9,7 @@ This is a website based on  used Furniture Purchase . You can Easily Purchase th
 
 # Admin Info
 - email: admin@gmail.com
--password: rakib01767
+- password: rakib01767
 
 ## Features
 
