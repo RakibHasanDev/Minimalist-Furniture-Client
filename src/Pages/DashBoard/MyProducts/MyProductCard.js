@@ -9,7 +9,7 @@ const MyProductCard = ({ product, handelDeleteProduct, handelAdvertise }) => {
     
         
     return (
-        <div className="lg:w-11/12  h-[26rem] mx-auto rounded-lg bg-gray-100 shadow-md border-gray-700 my-3 relative"  >
+        <div className="lg:w-11/12  h-[27.5rem] mx-auto rounded-lg bg-gray-100 shadow-md border-gray-700 my-3 relative"  >
 
             <div className='flex justify-center  rounded-lg overflow-hidden'>
                 <div className='p-2 transition-transform duration-500 transform ease-in-out hover:scale-110 w-full'>
@@ -22,8 +22,7 @@ const MyProductCard = ({ product, handelDeleteProduct, handelAdvertise }) => {
                
                 <div className='text-blue-700 space-y-1 '>
                     {
-                        !sold && advertise === true ? <marquee className='text-blue-600 text-sm mt-2'><i>Currently Advertising</i> </marquee> :
-                    <p>no advertise</p>
+                        advertise && <marquee className='text-blue-600 text-sm mt-2'><i>Currently Advertising</i> </marquee> 
                     }
 
                     <h3 className='text-md'> <b>{productName}</b> </h3>
