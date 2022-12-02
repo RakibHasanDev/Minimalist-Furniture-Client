@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import Loading from '../../../Components/Loading';
 
 const AllReports = () => {
-    const url = `http://localhost:5000/allReports`
+    const url = `https://server-site-coral.vercel.app/allReports`
 
     const { data: allReports = [], isLoading, refetch } = useQuery({
         queryKey: ['allReports'],
@@ -16,6 +16,8 @@ const AllReports = () => {
 
     })
 
+    console.log(allReports)
+
     const handelDeletProduct = (report) => {
 
         const proceed = window.confirm(
@@ -23,7 +25,7 @@ const AllReports = () => {
         );
 
         if (proceed) {
-            fetch(`http://localhost:5000/allReports/${report._id}`, {
+            fetch(`https://server-site-coral.vercel.app/allReports/${report._id}`, {
                 method: 'DELETE',
 
             })
@@ -31,7 +33,7 @@ const AllReports = () => {
                 .then(data => {
                     if (data.deletedCount) {
 
-                        fetch(`http://localhost:5000/products/${report.ProductId}`, {
+                        fetch(`https://server-site-coral.vercel.app/products/${report.ProductId}`, {
                             method: 'DELETE',
 
                         })

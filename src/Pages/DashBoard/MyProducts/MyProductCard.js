@@ -21,10 +21,10 @@ const MyProductCard = ({ product, handelDeleteProduct, handelAdvertise }) => {
             <div className="px-5">
                
                 <div className='text-blue-700 space-y-1 '>
-                    {/* {
+                    {
                         !sold && advertise === true ? <marquee className='text-blue-600 text-sm mt-2'><i>Currently Advertising</i> </marquee> :
                     <p>no advertise</p>
-                    } */}
+                    }
 
                     <h3 className='text-md'> <b>{productName}</b> </h3>
                     <h3 className='text-md'>Original Price: <b>${originalPrice}</b> </h3>
