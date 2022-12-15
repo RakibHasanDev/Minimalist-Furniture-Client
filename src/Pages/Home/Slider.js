@@ -10,9 +10,7 @@ export default function Slider() {
     return (
         <>
             <Swiper
-                pagination={{
-                    type: "progressbar",
-                }}
+                pagination={ true}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false,

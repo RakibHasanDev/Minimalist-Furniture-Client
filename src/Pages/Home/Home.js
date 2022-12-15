@@ -6,6 +6,7 @@ import Category from './Category';
 import Slider from './Slider';
 import axios from 'axios';
 import Advertise from './Advertise';
+import Advertisement from './Advertise/NewAdd';
 
 
 const Home = () => {
@@ -50,12 +51,17 @@ const Home = () => {
         <div>
             <Slider></Slider>
             <Category categories={categories} isLoading={isLoading}></Category>
-            {
+            {/* {
                 advertises?.length >0 &&
                 <Advertise
                         advertises={advertises}
                         loading={loading}
                     ></Advertise>
+            } */}
+
+            {
+                advertises?.length > 0 &&
+                <Advertisement advertise={advertises}></Advertisement>
             }
             <Banner></Banner>
         </div>

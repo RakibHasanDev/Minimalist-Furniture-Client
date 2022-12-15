@@ -11,8 +11,14 @@ const AdvertiseCard = ({advertise}) => {
                 <p >Real Price:<b> ${advertise?.originalPrice}</b> </p>
                 <p>Price: <b>${advertise?.resalePrice}</b></p>
                 <p>post on: <b className='text-xs'>{new Date(advertise.time).toLocaleString()}</b></p>
-                <div className="card-actions justify-end">
+                {/* <div className="card-actions justify-end">
                     <button className='bg-gradient-to-r from-purple-400 to-sky-500 text-white btn btn-sm mt-2 absolute bottom-3'>Buy Now</button>
+                </div> */}
+               
+                <div className='mt-3'>
+
+                    <marquee className="card-actions justify-end bg-gradient-to-r from-purple-400 to-sky-500 text-white btn btn-sm pt-2 px-2 absolute bottom-3">
+                        Please Login And Select Your Category</marquee>
                 </div>
             </div>
         </div>
