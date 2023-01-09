@@ -93,7 +93,7 @@ const ProductCard = ({ product, productHandler}) => {
                         {
                             sold === true ?
                                 
-                                <label className='bg-gray-300 w-full text-white text-center absolute bottom-0 rounded-md py-2 cursor-pointer'>Sold</label>
+                                <label className='bg-gray-300 w-full text-white text-center absolute bottom-0 rounded-md py-2 '>Sold</label>
                                 : 
                                 <label
 
