@@ -7,7 +7,7 @@ const AllSellers = () => {
 
  
 
-    const url = 'https://server-site-coral.vercel.app/allUsers/Seller'
+    const url = 'https://minimalfurniture.vercel.app/allUsers/Seller'
 
     const { data: sellers = [], isLoading ,refetch} = useQuery({
         queryKey: ['Seller',],
@@ -25,7 +25,7 @@ const AllSellers = () => {
             "Are you sure, you want to delete this Seller"
         );
         if (proceed) {
-            fetch(`https://server-site-coral.vercel.app/users/${seller._id}`, {
+            fetch(`https://minimalfurniture.vercel.app/users/${seller._id}`, {
                 method: 'DELETE',
 
             })
@@ -45,7 +45,7 @@ const AllSellers = () => {
     }
     const handelVerify = seller => {
 
-       fetch(`https://server-site-coral.vercel.app/users/verify/${seller._id}`, {
+       fetch(`https://minimalfurniture.vercel.app/users/verify/${seller._id}`, {
             method: 'PUT',
 
         })
@@ -66,7 +66,7 @@ const AllSellers = () => {
 
         console.log(name)
 
-        fetch(`https://server-site-coral.vercel.app/products/verify/${email}`, {
+        fetch(`https://minimalfurniture.vercel.app/products/verify/${email}`, {
             method: 'PUT',
 
         })

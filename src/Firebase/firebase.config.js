@@ -5,15 +5,15 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_apiKey,
-    authDomain: process.env.REACT_APP_authDomain,
-    projectId: process.env.REACT_APP_projectId,
-    storageBucket: process.env.REACT_APP_storageBucket,
-    messagingSenderId: process.env.REACT_APP_messagingSenderId,
-    appId: process.env.REACT_APP_appId,
+  apiKey: "AIzaSyBXFinW5oo3ghFMSkYX_QA1yTa9gwlwm2k",
+  authDomain: "minimal-furniture-d40b5.firebaseapp.com",
+  projectId: "minimal-furniture-d40b5",
+  storageBucket: "minimal-furniture-d40b5.appspot.com",
+  messagingSenderId: "378001004020",
+  appId: "1:378001004020:web:bd1d9669712c6c254455a1"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export default app;
+export default app ;

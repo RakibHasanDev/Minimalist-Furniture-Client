@@ -26,7 +26,7 @@ const BookingModal = ({ singleProduct, SetSingleProduct }) => {
             location
 
         }
-        fetch('https://server-site-coral.vercel.app/bookings', {
+        fetch('https://minimalfurniture.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

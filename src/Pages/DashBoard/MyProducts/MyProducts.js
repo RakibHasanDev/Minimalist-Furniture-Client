@@ -7,7 +7,7 @@ import MyProductCard from './MyProductCard';
 
 const MyProducts = () => {
     const { user } = useContext(AuthContext);
-    const url = `https://server-site-coral.vercel.app/products?email=${user?.email}`
+    const url = `https://minimalfurniture.vercel.app/products?email=${user?.email}`
 
     const { data: myProducts = [], isLoading, refetch } = useQuery({
         queryKey: ['products', user?.email],
@@ -29,7 +29,7 @@ const MyProducts = () => {
         );
 
         if (proceed) {
-            fetch(`https://server-site-coral.vercel.app/products/${product._id}`, {
+            fetch(`https://minimalfurniture.vercel.app/products/${product._id}`, {
                 method: 'DELETE',
 
             })
@@ -50,7 +50,7 @@ const MyProducts = () => {
     const handelAdvertise = (product) => {
         // console.log(product)
 
-        fetch(`https://server-site-coral.vercel.app/products/advertise/${product._id}`, {
+        fetch(`https://minimalfurniture.vercel.app/products/advertise/${product._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

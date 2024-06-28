@@ -5,8 +5,9 @@ import Banner from './Banner';
 import Category from './Category';
 import Slider from './Slider';
 import axios from 'axios';
-import Advertise from './Advertise';
+
 import Advertisement from './Advertise/NewAdd';
+
 
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
-                'https://server-site-coral.vercel.app/advertise/true',
+                'https://minimalfurniture.vercel.app/advertise/true',
             );
             setData(result.data);
             setLoading(false)
@@ -32,7 +33,7 @@ const Home = () => {
     // console.log(data)
 
 
-    const url = 'https://server-site-coral.vercel.app/categories'
+    const url = 'https://minimalfurniture.vercel.app/categories'
 
     const { data: categories = [], isLoading } = useQuery({
         queryKey: ['categories'],
@@ -61,7 +62,7 @@ const Home = () => {
 
             {
                 advertises?.length > 0 &&
-                <Advertisement advertise={advertises}></Advertisement>
+                <Advertisement advertises={advertises}></Advertisement>
             }
             <Banner></Banner>
         </div>

@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import Loading from '../../../Components/Loading';
 
 const AllReports = () => {
-    const url = `https://server-site-coral.vercel.app/allReports`
+    const url = `https://minimalfurniture.vercel.app/allReports`
 
     const { data: allReports = [], isLoading, refetch } = useQuery({
         queryKey: ['allReports'],
@@ -25,7 +25,7 @@ const AllReports = () => {
         );
 
         if (proceed) {
-            fetch(`https://server-site-coral.vercel.app/allReports/${report._id}`, {
+            fetch(`https://minimalfurniture.vercel.app/allReports/${report._id}`, {
                 method: 'DELETE',
 
             })
@@ -33,7 +33,7 @@ const AllReports = () => {
                 .then(data => {
                     if (data.deletedCount) {
 
-                        fetch(`https://server-site-coral.vercel.app/products/${report.ProductId}`, {
+                        fetch(`https://minimalfurniture.vercel.app/products/${report.ProductId}`, {
                             method: 'DELETE',
 
                         })

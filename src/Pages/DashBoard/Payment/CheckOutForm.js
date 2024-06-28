@@ -23,7 +23,7 @@ const CheckOutForm = ({ orders }) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("https://server-site-coral.vercel.app/create-payment-intent", {
+        fetch("https://minimalfurniture.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const CheckOutForm = ({ orders }) => {
                 bookingId: _id,
             };
 
-            fetch("https://server-site-coral.vercel.app/payments", {
+            fetch("https://minimalfurniture.vercel.app/payments", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
@@ -99,11 +99,11 @@ const CheckOutForm = ({ orders }) => {
                 });
         }
         setProcessing(false);
-        console.log(paymentIntent);
+        // console.log(paymentIntent);
     };
 
     const handleSold = (id) => {
-        fetch(`https://server-site-coral.vercel.app/products/sold/${id}`, {
+        fetch(`https://minimalfurniture.vercel.app/products/sold/${id}`, {
             method: "PUT",
         })
             .then((res) => res.json())

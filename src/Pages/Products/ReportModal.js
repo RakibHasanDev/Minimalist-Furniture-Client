@@ -23,7 +23,7 @@ const ReportModal = ({ singleProduct, SetSingleProduct } ) => {
             message
             
         }
-        fetch('https://server-site-coral.vercel.app/addReport', {
+        fetch('https://minimalfurniture.vercel.app/addReport', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

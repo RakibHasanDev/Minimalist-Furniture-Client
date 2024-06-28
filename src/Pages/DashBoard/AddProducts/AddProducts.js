@@ -50,7 +50,7 @@ const AddProducts = () => {
                         purchaseYear: data.purchase
                     };
                    
-                    fetch("https://server-site-coral.vercel.app/products", {
+                    fetch("https://minimalfurniture.vercel.app/products", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

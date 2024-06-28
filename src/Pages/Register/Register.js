@@ -78,7 +78,7 @@ const Register = () => {
     }
     const saveUser = (name, email, role, photoUrl, verify="false") => {
         const user = { name, email, role, photoUrl, verify };
-        fetch('https://server-site-coral.vercel.app/users', {
+        fetch('https://minimalfurniture.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

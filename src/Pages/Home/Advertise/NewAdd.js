@@ -9,10 +9,10 @@ import { FcAdvertising } from 'react-icons/fc';
 import { MdOutlineGppGood } from 'react-icons/md';
 
 // import required modules
-import { EffectCoverflow, Pagination, Autoplay } from "swiper";
+import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
 
-const Advertisement = ({ advertise }) => {
-
+const Advertisement = ({ advertises }) => {
+    console.log(advertises)
     return (
         <div  className='pt-1'>
             <div className='mt-10 mb-5 shadow-lg bg-blue-200 rounded-md'>
@@ -42,7 +42,7 @@ const Advertisement = ({ advertise }) => {
                 className="mySwiper"
             >
                 {
-                    advertise.map(ad => (
+                    advertises?.map(ad => (
                         ad.sold !== true ?
                             <SwiperSlide key={ad._id} className='max-w-sm'>
                                 <div className="mt-3 w-full max-w-sm overflow-hidden  rounded-lg shadow-xl dark:bg-gray-100">
